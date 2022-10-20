@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import adaline as adaline
+import adalineSGD as adalineSGD
 from matplotlib.colors import ListedColormap
 
 # Getting Iris Photos
@@ -49,7 +50,7 @@ X_std[:,0] = (X[:,0] - X[:,0].mean())/X[:,0].std()
 
 
 # Graphing Standardized Data
-ada_gd = adaline.AdalineGD(n_iter=20, eta=0.5)
+ada_gd = adalineSGD.adalineSGD(n_iter=20, eta=0.5)
 ada_gd.fit(X_std, y)
 plt.plot(range(1, len(ada_gd.losses_) + 1), ada_gd.losses_, marker="o")
 plt.xlabel('Epochs')
